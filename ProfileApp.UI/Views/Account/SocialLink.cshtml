@@ -1,0 +1,111 @@
+﻿
+@using ProfileApp.Dto.TblUserAccountDtos
+@model Tuple<TblUserAccountCreateDto, List<TblUserAccountListDto>>
+
+
+@{
+    Layout = "_Layout";
+}
+
+<link href="\css\stylesheet.css" rel="stylesheet" />
+<link href="\css\stylesheet.css" rel="stylesheet" />
+<div class="container light-style flex-grow-1 container-p-y">
+
+    <h4 class="font-weight-bold py-3 mb-4">
+        Account settings
+    </h4>
+
+    <div class="card overflow-hidden">
+        <div class="row no-gutters row-bordered row-border-light">
+            <div class="col-md-3 pt-0">
+                <div class="list-group list-group-flush account-settings-links">
+                    <a class="btn btn-warning" asp-action="AccountProfile" asp-controller="Account">Back to Homepage</a>
+                    <a class="list-group-item list-group-item-action active" data-toggle="list" href="#account-social-links">Social links</a>
+                </div>
+            </div>
+            <form method="post">
+                <div class="col-md-9">
+                    <div class="tab-content">
+                        <div class="tab-pane fade active show" id="account-social-links">
+                            <div class="card-body pb-2 ">
+                                <div class="form-group">
+                                    <input type="text" class="form-control " value="" name="AccountName"  placeholder="Account Name Instagram/Tiktok...">
+                                    <span class="text-danger">@Html.ValidationMessageFor(model => model.Item1.AccountName)</span>
+                                    <input type="text" class="form-control mt-3 " name="AccountUrl" placeholder=" Account Url www.instagram/....">
+                                    <span class="text-danger">@Html.ValidationMessageFor(model => model.Item1.AccountUrl)</span>
+                                </div>
+                            </div>
+                            <br />
+                            <div class="table container">
+                                <table class="table table-hover col-md-4 mx-auto">
+                                    <thead>
+                                        <tr>
+                                            <th>Account Name</th>
+                                            <th>Account Url</th>
+                                            <th>Delete</th>
+                                            <th>Update</th>
+                                            
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+
+                                        @for (int i = 0; i < Model.Item2.Count; i++)
+                                        {
+                                            <tr>
+                                                <td>@Model.Item2[i].AccountName</td>
+                                                <td>@Model.Item2[i].AccountUrl</td>
+                                                <td><a class="btn btn-danger" asp-action="Delete" asp-controller="Account" asp-route-DeleteId="@Model.Item2[i].Id">Delete</a></td>
+                                                <td><a class="btn btn-warning" asp-action="UpdateSocialAccount" asp-controller="Account" asp-route-Id="@Model.Item2[i].Id">Update</a></td>
+                                                
+                                                
+
+                                            </tr>
+                                            
+                                        }
+                                            
+                                    </tbody>
+                                </table>
+
+                            </div>
+                        </div>
+                    </div>
+                    <br />
+                    <div class="text-right mx-auto ">
+                        <button type="submit" asp-action="SocialLink" asp-controller="Account" class="btn btn-primary mb-4 ml-2 ">Add Social Account</button>&nbsp;
+                        <a class="btn btn-secondary mb-4 ml-2" href="/Account/AccountProfile" >Back</a>
+                    </div>
+                    
+                </div>
+            </form>
+        </div>
+    </div>
+
+
+
+</div>
+
+@*<script>
+    var counter = 0;
+
+    document.getElementById("ekleButton").addEventListener("click", function () {
+    var div = document.createElement("div");
+    var input = document.createElement("input");
+    div.className = "form-group";
+    input.type = "text";
+    input.type = "text";
+    input.name = "MetinKutular[" + counter + "]"; // Metin kutularını model nesnesine bağlamak için isimleri ayarlayın
+    div.appendChild(input);
+    document.getElementById("metinKutulari").appendChild(div);
+    counter++;
+    });
+    </script>*@
+
+@*<form method="post">
+    <div id="metinKutulari">
+    <!-- Dinamik metin kutuları burada görüntülenecek -->
+    </div>
+    <button type="button" id="ekleButton">Metin Kutusu Ekle</button>
+    <input type="submit" value="Gönder">
+    </form>*@
+
+

@@ -1,0 +1,206 @@
+﻿* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Times New Roman', Times, serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: linear-gradient(#405DE6, #5851DB, #833AB4); /* Mavi'den Mor'a, sonra Pembe'ye doğru bir geçiş oluşturur */
+    background-size: 100% 200%; /* Geçişin yatayda tamamını ve dikeyde iki katını kaplamasını sağlar */
+    animation: gradientAnimation 10s linear infinite; /* Geçişin yavaşça hareket etmesini sağlar */
+}
+
+@keyframes gradientAnimation {
+    0% {
+        background-position: 50% 0%;
+    }
+
+    100% {
+        background-position: 0% 100%;
+    }
+}
+
+.card {
+    position: relative;
+    width: 300px;
+    height: auto;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.1);
+    border-top: 1px solid rgba(255, 255, 255, 0.5);
+    box-shadow: 0 15px 25px rgba(0, 0, 0, 0.1), inset 0 0 50px rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(15px);
+    box-shadow: 0 15px 25px rgba(0, 0, 0, 0.1);
+    transition: height 0.3s;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.card-content {
+    z-index: 2;
+    padding: 20px; /* İçeriğin iç kenar boşluğunu ayarlar */
+    opacity: 1;
+    visibility: visible;
+}
+/*.card {
+    position: relative;
+    width: 300px;*/ /* Başlangıçta belirli bir genişlik verin */
+    /*background: #895DFF;
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.1);
+    border-top: 1px solid rgba(255, 255, 255, 0.5);
+    backdrop-filter: blur(15px);
+    box-shadow: 0 15px 25px rgba(0, 0, 0, 0.1);
+    transition: height 0.3s;*/ /* Kart boyutu değiştiğinde geçişi düzenler */
+/*}*/
+
+/*.img-bx {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+    overflow: hidden;
+    transform: translateY(30px) scale(0.5);
+    transform-origin: top;
+}
+
+    .img-bx img {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }*/
+
+.img-bx {
+    margin-top: 15px;
+    width: 150px; /* Başlangıçta belirli bir genişlik verin */
+    height: 150px; /* Başlangıçta belirli bir yükseklik verin */
+    overflow: hidden; /* Taşan içeriği gizleyin */
+    border-radius: 50%;
+    border: 3px solid transparent;
+    transition: height 0.3s; /* Konteynır boyutu değiştiğinde geçişi düzenler */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+    .img-bx:hover {
+        border: 0px solid #3498db; /* Modern çerçeve rengi (örneğin, mavi) */
+    }
+
+    /* Resmi stilize et */
+    .img-bx img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 50%;
+    }
+
+.content {
+    position: relative;
+    width: 100%;
+    min-height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    padding-bottom: 30px;
+    flex-direction: column;
+}
+
+    .content .detail {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        text-align: center;
+        min-height: 100%;
+    }
+
+        .content .detail h2 {
+            color: #444;
+            margin-top: 15px;
+            font-size: 1.6em;
+            font-weight: bolder;
+        }
+
+            .content .detail h2 span {
+                font-size: 0.7em;
+                margin-top: 15px;
+                font-weight: bold;
+                background: linear-gradient(45deg, #ff6b6b, #ffa69e, #5a20cb); /* Mavi'den Mor'a, sonra Pembe'ye doğru bir geçiş oluşturur */
+                -webkit-background-clip: text; /* Metni arka plan geçişine uyumlu hale getirir (Webkit tarayıcıları için) */
+                color: transparent; /* Metin rengini saydam yapar */
+            }
+
+.sci {
+    position: relative;
+    display: flex;
+    margin-top: 5px;
+}
+
+    .sci li {
+        margin-top: 15px;
+        list-style: none;
+        margin: 4px;
+    }
+
+        .sci li a {
+            width: 45px;
+            height: 45px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 50%;
+            background: transparent;
+            font-size: 1.5em;
+            color: #444;
+            text-decoration: none;
+            box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+            transition: 0.5s;
+        }
+
+            .sci li a:hover {
+                background: #03a9f4;
+                color: #fff;
+            }
+
+
+
+li {
+    list-style: none; /* Madde işaretini kaldırır (isteğe bağlı) */
+    margin: 10px 0; /* Yukarıdan ve alttan 10 piksel boşluk bırakır */
+}
+
+    /* <a> içindeki metni hedef al */
+    li a {
+        display: flex; /* Bağlantıyı blok seviyesine getirir (tam genişlik alır) */
+        justify-content: flex-start; /* İçeriği yatayda sağa doğru hizalar */
+        align-items: center; /* İçeriği dikeyde ortalar */
+        padding: 10px 20px; /* İçeriğin etrafına iç dolgu ekler */
+        text-decoration: none; /* Bağlantı altını çizgisini kaldırır (isteğe bağlı) */
+        background: linear-gradient(45deg, #ff6b6b, #ffa69e, #5a20cb); /* Arka plan rengini ayarlar */
+        color: #fff; /* Metin rengini beyaz yapar */
+        border-radius: 5px; /* Köşeleri yuvarlatır */
+        transition: background 0.3s, transform 0.2s;
+    }
+
+        /* Bağlantının üzerine gelindiğinde */
+        li a:hover {
+            background: linear-gradient(to right, #833ab4, #fd1d1d, #fcb045); /* Hover durumunda arka plan rengini değiştirir */
+            transform: translateY(-3px);
+        }
+
+
+Bu CSS kuralları, Razor döngüsü ile oluşturulan liste öğelerini ve içindeki bağlantıları hedef alır. Liste öğelerinin içeriği genişliği alacak şekilde düzenlenir ve stil özellikleri uygulanır. Ayrıca, bağlantılar üzerine gelindiğinde hover durumunda arka plan rengi değiştirilir. Bu stil kurallarını ihtiyacınıza göre özelleştirebilirsiniz.
+
+
+
+
+

@@ -1,0 +1,73 @@
+﻿@model ProfileApp.UI.Areas.Admin.Models.AdminLoginDto
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <script src="https://www.google.com/recaptcha/enterprise.js?render=6Lc_oG4oAAAAAK5FwBTrlMiFAnc9B11H40ssFGWX"></script>
+
+    @*<link rel="stylesheet" href="css/bootstrap1.min.css" />*@
+    <link href="~/admin/userlist/css/bootstrap1.min.css" rel="stylesheet" />
+    @*<link rel="stylesheet" href="vendors/themefy_icon/themify-icons.css" />
+    *@
+    <link href="~/admin/userlist/vendors/themefy_icon/themify-icons.css" rel="stylesheet" />
+    @*<link rel="stylesheet" href="vendors/font_awesome/css/all.min.css" />
+    *@
+    <link href="~/admin/userlist/vendors/font_awesome/css/all.min.css" rel="stylesheet" />
+
+    @*<link rel="stylesheet" href="vendors/scroll/scrollable.css" />
+    *@
+    <link href="~/admin/userlist/vendors/scroll/scrollable.css" rel="stylesheet" />
+    @*<link rel="stylesheet" href="css/metisMenu.css">
+    *@
+    <link href="~/admin/userlist/css/metismenu.css" rel="stylesheet" />
+    @*<link rel="stylesheet" href="css/style1.css" />
+    *@
+    <link href="~/admin/userlist/css/style1.css" rel="stylesheet" />
+    @*<link rel="stylesheet" href="css/colors/default.css" id="colorSkinCSS">*@
+    <link href="~/admin/userlist/css/colors/default.css" rel="stylesheet" id="colorSkinCSS" />
+</head>
+<body>
+    <div class="col-lg-12">
+        <div class="white_box mb_30">
+            <div class="row justify-content-center">
+                <div class="col-lg-6">
+
+                    <div class="modal-content cs_modal">
+                        <div class="modal-header justify-content-center theme_bg_1">
+                            <h5 class="modal-title text_white">Log in</h5>
+                        </div>
+                        <div class="modal-body">
+                            <form method="post">
+                                <div class>
+                                    <input type="text" class="form-control" asp-for="@Model.Username" placeholder="Username">
+                                </div>
+                                <div class>
+                                    <input type="password" class="form-control" asp-for="@Model.Password" placeholder="Password">
+                                </div>
+                                
+                                <button type="submit" asp-action="AdminGiris" asp-controller="Account" class="btn_1 full_width text-center">Log in</button>
+                                <p>Need an account? <a data-toggle="modal" data-target="#sing_up" data-dismiss="modal" href="#"> Sign Up</a></p>
+                                <div class="text-center">
+                                    <a href="#" data-toggle="modal" data-target="#forgot_password" data-dismiss="modal" class="pass_forget_btn">Forget Password?</a>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        function onClick(e) {
+            e.preventDefault();
+            grecaptcha.enterprise.ready(async () => {
+                const token = await grecaptcha.enterprise.execute('6Lc_oG4oAAAAAK5FwBTrlMiFAnc9B11H40ssFGWX', { action: 'LOGIN' });
+                // IMPORTANT: The 'token' that results from execute is an encrypted response sent by
+                // reCAPTCHA Enterprise to the end user's browser.
+                // This token must be validated by creating an assessment.
+                // See https://cloud.google.com/recaptcha-enterprise/docs/create-assessment
+            });
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,16 @@
+﻿using ProfileApp.Dto.Interfaces;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ProfileApp.Dto.TblAppRoleDtos
+{
+    public class TblAppRoleCreateDto : IDto
+    {
+        public string Defination { get; set; }
+
+        
+    }
+}

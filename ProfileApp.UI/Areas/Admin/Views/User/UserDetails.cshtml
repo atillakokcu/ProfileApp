@@ -1,0 +1,56 @@
+﻿@model ProfileApp.UI.Areas.Admin.Models.UpdateUserDetail
+@{
+    ViewData["Title"] = "UserDetails";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+<form method="post" asp-action="UserDetails" asp-controller="User">
+    <div>
+        <label for="Name">Name:</label>
+        <input type="text" asp-for="@Model.Name" />
+    </div>
+
+    <div>
+        <label for="Surname">Surname:</label>
+        <input type="text" asp-for="@Model.Surname" />
+    </div>
+
+    <div>
+        <label for="Username">Username:</label>
+        <input type="text" asp-for="@Model.Username" />
+    </div>
+
+    <div>
+        <label for="Password">Password:</label>
+        <input type="text" asp-for="@Model.Password" />
+    </div>
+
+    <div>
+        <label for="ImageUrl">Image URL:</label>
+        <input type="text" asp-for="@Model.ImageUrl" />
+    </div>
+
+    <div>
+        <label for="UserNamGuidId">User GUID :</label>
+        <input type="text" asp-for="@Model.UserNamGuidId" />
+    </div>
+
+    <div>
+        <label for="MailAdress">Email Address:</label>
+        <input type="email" asp-for="@Model.MailAdress" />
+    </div>
+
+    <div>
+        <label for="StatusId">Status ID:</label>
+        <input type="number" asp-for="@Model.StatusId" />
+    </div>
+    <div>
+        <label for="StatusId">Role ID:</label>
+        <input type="number" asp-for="@Model.RoleId" readonly/>
+    </div>
+
+    <div>
+        <input type="submit" asp-action="UserDetails" asp-controller="User" />
+    </div>
+</form>

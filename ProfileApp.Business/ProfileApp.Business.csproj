@@ -1,0 +1,21 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net7.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="12.0.1" />
+    <PackageReference Include="FluentValidation" Version="11.7.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\ProfileApp.Common\ProfileApp.Common.csproj" />
+    <ProjectReference Include="..\ProfileApp.DataAccess\ProfileApp.DataAccess.csproj" />
+    <ProjectReference Include="..\ProfileApp.Dto\ProfileApp.Dto.csproj" />
+    <ProjectReference Include="..\ProfileApp.Entity\ProfileApp.Entity.csproj" />
+  </ItemGroup>
+
+</Project>
